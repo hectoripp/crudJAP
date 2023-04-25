@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container my-5">
+    <center><h1>Listado de Autos "BIP"</h1></center>
+    <a class="btn btn-primary my-5" th:href="@{/nuevo}">Agregar Auto</a>
+    <table class="table table-striped">
+        <thead >
+        <tr>
+            <th>#</th>
+            <th>MARCA</th>
+            <th>MODELO</th>
+            <th>PRECIO</th>
+            <th>ACCIONES SOBRE AUTOS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="a:${autos}">
+            <td th:text="${a.id}"></td>
+            <td th:text="${a.marca}"></td>
+            <td th:text="${a.modelo}"></td>
+            <td th:text="${a.precio}"></td>
+            <td>
+                <a class="btn btn-danger" th:href="@{/delete/}+${a.id}">eliminar</a>
+                <a class="btn btn-warning" th:href="@{/listar/}+${a.id}">editar</a>
+            </td>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <center> <h3>Héctor Isaí Pérez Pérez</h3></center>
+</div>
+</body>
+</html>
